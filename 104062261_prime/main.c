@@ -10,7 +10,7 @@ int main(void) {
 
     input = fopen("input_prime.txt", "r");
     fgets(s, 50, input);
-    num = atoll(s);
+    num = strtoull(s,NULL,10);
     printf("%llu\n", num);
     fclose(input);
 
@@ -18,17 +18,18 @@ int main(void) {
     if(num==1) {
         fprintf(output, "F\n1\n");
     }else {
-        for(i=2;i<num;i++){
+        for(i=2;i<=num/2;i++){
 			if(num%i==0){
                 if(is_prime == 0) {
                     fprintf(output, "F\n1");
                     is_prime = 1;
                 }
+                printf("%llu\n", i);
 				fprintf(output, " %llu", i);
 			}
 		}
-		if(is_prime == 0) fprintf(output, "T");
-		fprintf(output, "\n");
+		if(is_prime == 0) fprintf(output, "T\n");
+		else fprintf(output, " %llu\n", num);
     }
     fclose(output);
 
