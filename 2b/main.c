@@ -10,7 +10,7 @@ int main(void) {
     t1 = clock();
     while( ((clock() - t1)/(double)(CLOCKS_PER_SEC)) < 1799.9 ) {
         is_prime = 0;
-        for(i=2;i<num;i++){
+        for(i=2;i<num/2;i++){
 			if(num%i==0){
                 is_prime = 1;
                 break;
